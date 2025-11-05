@@ -1,0 +1,30 @@
+@mixin btn {
+    background: $color-pastel-pink;
+    color: $color-text-pink;
+    border-radius: $btn-border-radius;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 10px 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin input {
+    background-color: $color-pastel-pink;
+    border: 1px solid $color-text-pink;
+    border-radius: 10px;
+    font-size: 16px;
+    opacity: 0.5;
+    width: 100%;
+    padding: 15px;
+
+    color: $color-text-pink;
+    width: 100%;
+}
+
+@mixin text {
+    font-weight: 400;
+    font-size: 16px;
+}
