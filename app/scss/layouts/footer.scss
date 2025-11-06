@@ -1,0 +1,44 @@
+.footer {
+    background: #171717;
+
+    &__left {
+        width: 50%;
+
+        ._logo {
+            margin-top: 44px;
+        }
+
+        ul {
+            gap: 27px;
+
+            li {
+                a {
+                    font-family: $font-family;
+                    font-weight: $font-weight-medium;
+                    font-size: 16px;
+                    line-height: 126%;
+                    letter-spacing: -0.01em;
+                    text-align: center;
+                    color: $color-white;
+                }
+            }
+        }
+
+        ._btn {
+            padding: 23px 66px;
+        }
+    }
+
+    &__menu {
+        margin: 57px 0;
+    }
+
+    &__right {
+        width: 630px;
+        height: 684px;
+        background-image: url('../../images/footer-bg.webp');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+}

@@ -1,0 +1,11 @@
+.header {
+    padding-top: 16px;
+    &__container {
+        nav {
+            ul {
+                gap: 27px;
+                margin-right: 42px;
+            }
+        }
+    }
+}

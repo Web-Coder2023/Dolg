@@ -1,10 +1,13 @@
 @mixin btn {
-    background: $color-pastel-pink;
-    color: $color-text-pink;
-    border-radius: $btn-border-radius;
-    font-size: 16px;
+    background: linear-gradient(90deg, #3d7bff 0%, #739aed 53.85%, #3d7bff 100%);
+    color: $color-white;
+    border-radius: $border-radius;
+    font-size: 18px;
     font-weight: 400;
-    padding: 10px 20px;
+    line-height: 119%;
+    letter-spacing: -0.01em;
+    text-align: center;
+    padding: 23px;
 
     display: flex;
     align-items: center;
@@ -12,19 +15,18 @@
 }
 
 @mixin input {
-    background-color: $color-pastel-pink;
-    border: 1px solid $color-text-pink;
-    border-radius: 10px;
-    font-size: 16px;
-    opacity: 0.5;
+    border-radius: 8px;
+    height: 54px;
+    background: #eee;
     width: 100%;
-    padding: 15px;
-
-    color: $color-text-pink;
-    width: 100%;
+    padding: 22px;
+    padding-right: 0;
 }
 
-@mixin text {
-    font-weight: 400;
-    font-size: 16px;
+@mixin title-card {
+    font-family: $font-family;
+    font-weight: $font-weight-medium;
+    line-height: 126%;
+    letter-spacing: -0.01em;
+    color: #2d2d2d;
 }

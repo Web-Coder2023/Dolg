@@ -1,6 +1,10 @@
 @import './constants/variables.scss';
 @import './constants/mixins.scss';
 @import './constants/null.scss';
-@import './constants/base.scss';
+@import './constants/technical.scss';
 
+@import './layouts/header.scss';
 
+@import './section/hero.scss';
+
+@import './layouts/footer.scss';
