@@ -1,0 +1,108 @@
+.projects {
+    &__left {
+        border-radius: 40px;
+        width: 472px;
+        height: 539px;
+        overflow: hidden;
+        position: relative;
+        margin-right: 36px;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #212121;
+            z-index: 2;
+        }
+
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        p {
+            position: absolute;
+            bottom: 57px;
+            left: 50%;
+            z-index: 3;
+            transform: translateX(-50%);
+            width: 356px;
+
+            font-family: $font-family;
+            font-weight: 400;
+            font-style: italic;
+            font-size: 18px;
+            line-height: 112%;
+            letter-spacing: -0.01em;
+            text-align: center;
+            color: #fff;
+        }
+    }
+
+    &__right {
+        h3 {
+            font-family: $font-family;
+            font-weight: $font-weight-regular;
+            font-size: 38px;
+            line-height: 100%;
+            letter-spacing: -0.01em;
+            color: #2d2d2d;
+
+            span {
+                font-weight: $font-weight-medium;
+            }
+
+            margin-bottom: 29px;
+        }
+
+        h4 {
+            font-family: $font-family;
+            font-weight: $font-weight-medium;
+            font-size: 18px;
+            line-height: 112%;
+            letter-spacing: -0.01em;
+            color: rgba(0, 0, 0, 0.63);
+            margin-bottom: 56px;
+        }
+
+        ul {
+            margin-bottom: 56px;
+            gap: 25px;
+
+            li {
+                font-weight: $font-weight-regular;
+                font-size: 24px;
+                line-height: 100%;
+                letter-spacing: -0.01em;
+
+                strong {
+                    width: 131px;
+                    display: block;
+                    font-weight: $font-weight-medium;
+                    color: #3d7bff;
+                }
+            }
+        }
+    }
+
+    &__result {
+        font-weight: $font-weight-medium;
+        font-size: 28px;
+        line-height: 100%;
+        letter-spacing: -0.01em;
+        color: #3d7bff;
+
+        span {
+            display: block;
+            margin-top: 27px;
+            color: #2d2d2d;
+        }
+    }
+}
