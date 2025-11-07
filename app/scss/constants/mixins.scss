@@ -16,11 +16,9 @@
 
 @mixin input {
     border-radius: 8px;
-    height: 54px;
     background: #eee;
     width: 100%;
-    padding: 22px;
-    padding-right: 0;
+    padding: 21px 17px;
 }
 
 @mixin title-card {
