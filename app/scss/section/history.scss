@@ -1,0 +1,53 @@
+.history {
+    background: #fff;
+
+    ._section-title {
+        margin: 0 auto;
+        text-align: center;
+        margin-bottom: 70px;
+    }
+
+    ._cards {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 48px;
+
+        ._card {
+            background: #eee;
+            width: 330px;
+
+            h3 {
+                color: #3d7bff;
+            }
+
+            button {
+                background: #323232;
+                border-radius: 8px;
+                padding: 10px 18px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+            }
+
+            font-family: var(--font-family);
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 119%;
+            letter-spacing: -0.01em;
+            color: #eee;
+        }
+
+        &-top {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        &-bottom {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+    }
+}

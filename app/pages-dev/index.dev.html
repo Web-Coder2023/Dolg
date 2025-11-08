@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Главная страница</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
     <link rel="stylesheet" href="./css/style.min.css">
 </head>
 
@@ -24,10 +24,24 @@
             <!--=include section/trust.html -->
             <!--=include section/action.html -->
             <!--=include section/projects.html -->
+            <!--=include section/history.html -->
+            <!--=include section/knowledge.html -->
         </main>
         <!--=include footer.html -->
     </div>
-    <script src="./js/main.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <script type="module">
+        const swiper = new Swiper('.swiper', {
+            direction: 'horizontal',
+            slidesPerView: 4.8,
+            spaceBetween: 30,
+            scrollbar: {
+                el: '.swiper-scrollbar',
+                draggable: true,
+            },
+        });
+
+    </script>
 </body>
 
 </html>
