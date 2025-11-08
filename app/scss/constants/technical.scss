@@ -144,3 +144,23 @@
         }
     }
 }
+
+._label {
+    &-wrap {
+        height: 100%;
+        max-width: 439px;
+        gap: 50px;
+
+        button {
+            max-width: 383px;
+        }
+    }
+
+    &-right {
+        width: 630px;
+        background-image: url('../../images/preloader.webp');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+}
