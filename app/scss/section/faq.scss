@@ -1,0 +1,22 @@
+.faq {
+    background-color: #eee;
+
+    &__items {
+        margin-top: 50px;
+    }
+
+    &__item {
+        border-radius: 21px;
+        padding-top: 7px;
+        padding-bottom: 7px;
+        padding-left: 14px;
+        padding-right: 7px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: $color-white;
+    }
+    &__icon {
+        margin-left: 51px;
+    }
+}
