@@ -5,49 +5,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Главная страница</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+    <title>О компании</title>
     <link rel="stylesheet" href="./css/style.min.css">
 </head>
 
 <body>
     <div class="wrapper">
-        <div class="hero">
-            <div class="header-home">
-                <!--=include header.html -->
-            </div>
-            <!--=include section/hero.html -->
-        </div>
+        <!--=include header.html -->
         <main class="main">
-            <!--=include section/amnesty.html -->
-            <!--=include section/discharge.html -->
-            <!--=include section/trust.html -->
-            <!--=include section/action.html -->
-            <!--=include section/projects.html -->
-            <!--=include section/history.html -->
-            <!--=include section/knowledge.html -->
-            <!--=include section/case.html -->
-            <!--=include section/compare.html -->
-            <!--=include section/faq.html -->
-            <!--=include section/calculator.html -->
-            <!--=include section/callback.html -->
+            <!--=include section/writeoff.html -->
+            <!--=include section/temp.html -->
+            <!--=include section/company-action.html -->
+            <!--=include section/company-callback.html -->
         </main>
         <!--=include footer.html -->
     </div>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
-    <script type="module">
-        const swiper = new Swiper('.swiper', {
-            direction: 'horizontal',
-            slidesPerView: 4.4,
-            spaceBetween: 30,
-            scrollbar: {
-                el: '.swiper-scrollbar',
-                draggable: true,
-            },
-        });
-
-    </script>
     <script>
         // Валидация формы с reCAPTCHA (связь формы и капчи через JS)
         document.addEventListener('DOMContentLoaded', function() {

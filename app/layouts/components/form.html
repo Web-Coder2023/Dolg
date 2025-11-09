@@ -1,8 +1,9 @@
-<form action="#" class="form df df-fc df-as">
-    <input type="text" class="_input" placeholder="Ваше имя">
-    <input type="text" class="_input" placeholder="Телефон">
-    <input type="text" class="_input" placeholder="Почта">
-    <textarea class="_textarea" placeholder="Сообщение..."></textarea>
+<form action="#" method="POST" id="callbackForm" class="form df df-fc df-as">
+    <input type="text" name="name" class="_input" placeholder="Ваше имя" required>
+    <input type="tel" name="phone" class="_input" placeholder="Телефон" required>
+    <input type="email" name="email" class="_input" placeholder="Почта" required>
+    <textarea name="message" class="_textarea" placeholder="Сообщение..."></textarea>
+    
     <button type="submit" class="_btn">
         Записаться
         <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">

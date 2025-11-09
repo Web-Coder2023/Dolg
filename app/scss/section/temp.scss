@@ -1,0 +1,51 @@
+.temp {
+    background: #eee;
+._section-title, ._section-text {
+    text-align: center;
+}
+._section-text {
+    margin-top: 27px;
+    margin-bottom: 21px;
+}
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: space-between;
+        li {
+            height: 300px;
+            position: relative;
+
+            img {
+                border-radius: 8px;
+                width: 285px;
+                height: 260px;
+                background: #fff;
+                overflow: hidden;
+            }
+
+            a {
+                position: absolute;
+                bottom: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: #3d7bff;
+                border-radius: 8px;
+                width: 285px;
+                height: 54px;
+
+                font-family: $font-family;
+                font-weight: 500;
+                font-size: 18px;
+                line-height: 112%;
+                letter-spacing: -0.01em;
+                color: #fff;
+            }
+        }
+    }
+}
+
+.company-callback  {
+    background-color: #eee;
+}
