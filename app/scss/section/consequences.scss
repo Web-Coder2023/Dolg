@@ -1,0 +1,25 @@
+.consequences {
+    &__list {
+        display: flex;
+        max-width: 794px;
+        margin: 0 auto;
+        margin-top: 58px;
+        gap: 38px;
+    }
+    &__item {
+        min-width: 387px;
+        max-width: 387px;
+        p {
+            opacity: 0.4;
+        }
+    }
+    &__head {
+        display: flex;
+        justify-content: space-between;
+        padding: 19px;
+        margin-bottom: 15px;
+        background: #fff2f2;
+        border-radius: 8px;
+        min-height: 78px;
+    }
+}
