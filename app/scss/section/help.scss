@@ -1,0 +1,47 @@
+.help {
+    ._section-title {
+        margin-bottom: 50px;
+        text-align: center;
+    }
+
+    .knowledge__image {
+        background: #212121;
+        border-radius: 8px;
+        width: 285px;
+        height: 170px;
+        position: relative;
+
+        button {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+        }
+    }
+
+    ._cards {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    ._cards-top,
+    ._cards-bottom {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    ._cards ._card {
+        padding: 0;
+        height: auto;
+        position: relative;
+
+        a {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}

@@ -1,0 +1,16 @@
+.payment {
+    ._section-title {
+        margin-bottom: 31px;
+    }
+    ul {
+        li {
+            label {
+                margin-left: 20px;
+            }
+        }
+    }
+    &__right {
+        width: 387px;
+        gap: 13px;
+    }
+}

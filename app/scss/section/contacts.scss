@@ -1,0 +1,26 @@
+.contacts-callback {
+    height: auto;
+    &__container {
+        padding-bottom: 69px;
+        display: flex;
+        flex-direction: column;
+        min-height: 831px;
+    }
+
+    &__title {
+        text-align: center;
+        margin-bottom: 85px;
+    }
+
+    &__wrap {
+        flex: 1;
+        align-items: stretch;
+    }
+
+    .callback__left {
+        height: auto;
+    }
+    .callback__wrap {
+        margin-top: 23px;
+    }
+}
