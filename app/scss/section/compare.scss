@@ -73,4 +73,116 @@
             color: #212121;
         }
     }
+
+    // Адаптив
+    @media (max-width: 1024px) {
+        ._section-title {
+            margin-bottom: 50px;
+        }
+
+        &__table {
+            max-width: 100%;
+        }
+
+        &__row {
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 20px;
+
+            &--header {
+                margin-bottom: 25px;
+            }
+        }
+
+        &__cell {
+            padding: 20px 15px;
+
+            span {
+                font-size: 16px;
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        ._section-title {
+            font-size: 32px;
+            margin-bottom: 40px;
+
+            br {
+                display: none;
+            }
+        }
+
+        &__row {
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin-bottom: 25px;
+            font-size: 18px;
+
+            &--header {
+                display: flex;
+                justify-content: space-around;
+                margin-bottom: 30px;
+
+                .compare__cell {
+                    flex: 1;
+                    padding: 15px 10px;
+                    
+                    &--criteria {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        &__cell {
+            padding: 18px 15px;
+            flex-direction: column;
+            gap: 10px;
+
+            span {
+                font-size: 15px;
+            }
+
+            &--criteria {
+                font-size: 16px;
+                font-weight: $font-weight-medium;
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        ._section-title {
+            font-size: 28px;
+            margin-bottom: 30px;
+        }
+
+        &__row {
+            gap: 10px;
+            margin-bottom: 20px;
+            font-size: 16px;
+
+            &--header {
+                margin-bottom: 25px;
+                gap: 8px;
+
+                .compare__cell {
+                    padding: 12px 8px;
+                    font-size: 14px;
+                }
+            }
+        }
+
+        &__cell {
+            padding: 15px 12px;
+
+            span {
+                font-size: 14px;
+            }
+
+            &--criteria {
+                font-size: 15px;
+            }
+        }
+    }
 }

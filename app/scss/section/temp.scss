@@ -44,6 +44,86 @@
             }
         }
     }
+
+    // Адаптив
+    @media (max-width: 1024px) {
+        ul {
+            gap: 18px;
+            justify-content: center;
+
+            li {
+                height: 280px;
+
+                img {
+                    width: 260px;
+                    height: 240px;
+                }
+
+                a {
+                    width: 260px;
+                    height: 50px;
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        ._section-text {
+            margin-top: 20px;
+            margin-bottom: 18px;
+        }
+
+        ul {
+            gap: 15px;
+            justify-content: center;
+
+            li {
+                height: auto;
+                width: 100%;
+                max-width: 350px;
+
+                img {
+                    width: 100%;
+                    max-width: 350px;
+                    height: 250px;
+                }
+
+                a {
+                    width: 100%;
+                    max-width: 350px;
+                    height: 48px;
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        ._section-text {
+            margin-top: 18px;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            gap: 12px;
+
+            li {
+                max-width: 100%;
+
+                img {
+                    max-width: 100%;
+                    height: 220px;
+                }
+
+                a {
+                    max-width: 100%;
+                    height: 45px;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
 }
 
 .company-callback  {

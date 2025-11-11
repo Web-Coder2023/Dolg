@@ -30,4 +30,77 @@
         width: 383px;
         margin: 0 auto;
     }
+
+    // Адаптив
+    @media (max-width: 1024px) {
+        ._section-title {
+            margin-bottom: 60px;
+        }
+
+        &__info {
+            margin-bottom: 60px;
+
+            &-item {
+                max-width: 100%;
+            }
+        }
+
+        ._section-text {
+            font-size: 20px;
+        }
+
+        ul._section-text {
+            font-size: 16px;
+        }
+
+        &__btn {
+            width: 100%;
+            max-width: 383px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        ._section-title {
+            margin-bottom: 50px;
+        }
+
+        &__info {
+            margin-bottom: 50px;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        ._section-text {
+            font-size: 18px;
+            text-align: center;
+        }
+
+        ul._section-text {
+            font-size: 15px;
+            text-align: left;
+        }
+
+        &__btn {
+            max-width: 100%;
+        }
+    }
+
+    @media (max-width: 480px) {
+        ._section-title {
+            margin-bottom: 40px;
+        }
+
+        &__info {
+            margin-bottom: 40px;
+            gap: 25px;
+        }
+
+        ._section-text {
+            font-size: 16px;
+        }
+
+        ul._section-text {
+            font-size: 14px;
+        }
+    }
 }

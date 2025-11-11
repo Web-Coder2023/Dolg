@@ -8,4 +8,26 @@
     form {
         margin-top: 56px;
     }
+
+    // Адаптив
+    @media (max-width: 768px) {
+        &__head {
+            gap: 15px;
+            flex-direction: column;
+        }
+
+        form {
+            margin-top: 40px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        &__head {
+            gap: 12px;
+        }
+
+        form {
+            margin-top: 30px;
+        }
+    }
 }

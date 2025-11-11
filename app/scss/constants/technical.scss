@@ -176,6 +176,39 @@
         background-position: center;
         background-repeat: no-repeat;
     }
+
+    // Адаптив для _label
+    @media (max-width: 1024px) {
+        &-wrap {
+            max-width: 100%;
+            gap: 35px;
+        }
+
+        &-right {
+            width: 100%;
+            max-width: 600px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        &-wrap {
+            gap: 30px;
+
+            button {
+                max-width: 100%;
+            }
+        }
+
+        &-right {
+            max-width: 100%;
+        }
+    }
+
+    @media (max-width: 480px) {
+        &-wrap {
+            gap: 25px;
+        }
+    }
 }
 
 .h-full {
@@ -190,5 +223,42 @@
     .consequences__list {
         max-width: auto;
         justify-content: center;
+    }
+}
+
+// Общий адаптив для всех секций
+@media (max-width: 768px) {
+    ._section-padding {
+        padding: 60px 0;
+    }
+
+    ._section-title {
+        font-size: 32px;
+    }
+
+    ._section-subtitle {
+        font-size: 16px;
+    }
+
+    ._section-text {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    ._section-padding {
+        padding: 50px 0;
+    }
+
+    ._section-title {
+        font-size: 28px;
+    }
+
+    ._section-subtitle {
+        font-size: 15px;
+    }
+
+    ._section-text {
+        font-size: 15px;
     }
 }

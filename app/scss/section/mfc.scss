@@ -14,6 +14,10 @@
         line-height: 115%;
         color: #2d2d2d;
         opacity: 0.5;
+
+        br {
+            display: block;
+        }
     }
 
     &__icons {
@@ -22,6 +26,82 @@
         li {
             p {
                 margin-top: 17px;
+            }
+        }
+    }
+
+    // Адаптив
+    @media (max-width: 1024px) {
+        &__icons {
+            gap: 60px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        ._section-title {
+            font-size: 32px;
+            margin-bottom: 20px;
+            br {
+                display: none;
+            }
+        }
+
+        button {
+            margin-top: 50px;
+            margin-bottom: 20px;
+            min-width: 100%;
+            max-width: 100%;
+        }
+
+        &__descr {
+            font-size: 16px;
+            br {
+                display: none;
+            }
+        }
+
+        &__icons {
+            margin-top: 40px;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+
+            li {
+                min-width: 120px;
+                text-align: center;
+
+                svg {
+                    width: 32px;
+                    height: 32px;
+                }
+
+                p {
+                    margin-top: 12px;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        ._section-title {
+            font-size: 28px;
+        }
+
+        &__icons {
+            gap: 20px;
+
+            li {
+                min-width: 100px;
+
+                svg {
+                    width: 28px;
+                    height: 28px;
+                }
+
+                p {
+                    font-size: 12px;
+                }
             }
         }
     }

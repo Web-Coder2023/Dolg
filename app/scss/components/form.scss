@@ -1,10 +1,43 @@
 .form {
     gap: 20px;
     width: 387px;
+    
     button {
         width: 183px;
         svg {
             margin-left: 11px;
+        }
+    }
+
+    // Адаптив
+    @media (max-width: 1024px) {
+        width: 350px;
+        gap: 18px;
+    }
+
+    @media (max-width: 768px) {
+        width: 100%;
+        gap: 15px;
+
+        button {
+            width: 100%;
+            max-width: 250px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        gap: 12px;
+
+        button {
+            max-width: 100%;
+            padding: 12px 20px;
+            font-size: 14px;
+
+            svg {
+                margin-left: 8px;
+                width: 8px;
+                height: 8px;
+            }
         }
     }
 }

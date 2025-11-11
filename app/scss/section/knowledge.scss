@@ -74,4 +74,113 @@
         border-radius: 170px;
         height: 13px;
     }
+
+    // Адаптив
+    @media (max-width: 1024px) {
+        ._section-title {
+            margin-bottom: 18px;
+        }
+
+        .swiper {
+            margin-top: 35px;
+
+            .swiper-slide {
+                .knowledge__image {
+                    width: 220px;
+                    height: 168px;
+                    margin-bottom: 22px;
+                }
+
+                p {
+                    font-size: 16px;
+                }
+            }
+        }
+
+        .swiper-scrollbar.swiper-scrollbar-horizontal {
+            margin-top: 28px;
+            height: 18px;
+        }
+
+        .swiper-scrollbar-drag {
+            height: 11px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        ._section-title {
+            font-size: 32px;
+            margin-bottom: 15px;
+
+            br {
+                display: none;
+            }
+        }
+
+        ._section-subtitle {
+            font-size: 16px;
+        }
+
+        .swiper {
+            margin-top: 30px;
+
+            .swiper-slide {
+                .knowledge__image {
+                    width: 100%;
+                    max-width: 280px;
+                    height: 200px;
+                    margin: 0 auto 20px;
+                }
+
+                p {
+                    font-size: 15px;
+                    text-align: center;
+                }
+            }
+        }
+
+        .swiper-scrollbar.swiper-scrollbar-horizontal {
+            margin-top: 25px;
+            height: 16px;
+        }
+
+        .swiper-scrollbar-drag {
+            height: 10px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        ._section-title {
+            font-size: 28px;
+        }
+
+        ._section-subtitle {
+            font-size: 15px;
+        }
+
+        .swiper {
+            margin-top: 25px;
+
+            .swiper-slide {
+                .knowledge__image {
+                    height: 180px;
+                    margin-bottom: 18px;
+                }
+
+                p {
+                    font-size: 14px;
+                }
+            }
+        }
+
+        .swiper-scrollbar.swiper-scrollbar-horizontal {
+            margin-top: 22px;
+            height: 14px;
+            padding: 3px;
+        }
+
+        .swiper-scrollbar-drag {
+            height: 8px;
+        }
+    }
 }

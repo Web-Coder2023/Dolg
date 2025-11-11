@@ -23,25 +23,25 @@
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script>
         // Валидация формы с reCAPTCHA (связь формы и капчи через JS)
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const form = document.getElementById('callbackForm');
             const agreementCheckbox = document.getElementById('agreement');
             const recaptchaElement = document.getElementById('callbackRecaptcha');
-            
+
             if (form && recaptchaElement) {
-                form.addEventListener('submit', function(e) {
+                form.addEventListener('submit', function (e) {
                     e.preventDefault();
-                    
+
                     // Проверка соглашения на обработку данных
                     if (!agreementCheckbox || !agreementCheckbox.checked) {
                         alert('Пожалуйста, согласитесь на обработку персональных данных');
                         return false;
                     }
-                    
+
                     // Проверка reCAPTCHA (связана с формой через ID)
                     // grecaptcha.getResponse() получает значение из виджета callbackRecaptcha
                     const recaptchaResponse = grecaptcha.getResponse();
-                    
+
                     if (recaptchaResponse.length === 0) {
                         alert('Пожалуйста, подтвердите, что вы не робот');
                         // Подсветить блок с капчей
@@ -51,46 +51,119 @@
                         }, 2000);
                         return false;
                     }
-                    
+
                     // Если все проверки пройдены, отправляем форму
                     const formData = new FormData(form);
                     formData.append('g-recaptcha-response', recaptchaResponse);
-                    
+
                     // Отправка формы
                     // Для WordPress темы используем путь к теме
                     fetch('/wp-content/themes/dolg/submit-form.php', {
                         method: 'POST',
                         body: formData
                     })
-                    .then(response => {
-                        // Проверяем статус ответа
-                        if (!response.ok) {
-                            throw new Error(`HTTP error! status: ${response.status}`);
-                        }
-                        // Проверяем, что ответ действительно JSON
-                        const contentType = response.headers.get("content-type");
-                        if (contentType && contentType.indexOf("application/json") !== -1) {
-                            return response.json();
-                        } else {
-                            throw new Error('Сервер вернул не JSON ответ. Проверьте путь к submit-form.php');
-                        }
-                    })
-                    .then(data => {
-                        if (data.success) {
-                            alert('Спасибо! Мы перезвоним вам в течение 15 минут');
-                            form.reset();
-                            grecaptcha.reset();
-                        } else {
-                            alert(data.message || 'Ошибка отправки формы. Попробуйте еще раз.');
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                        alert('Ошибка: ' + error.message + '\n\nПроверьте:\n1. Файл submit-form.php загружен на хостинг\n2. Путь к файлу правильный\n3. PHP работает на сервере');
-                    });
+                        .then(response => {
+                            // Проверяем статус ответа
+                            if (!response.ok) {
+                                throw new Error(`HTTP error! status: ${response.status}`);
+                            }
+                            // Проверяем, что ответ действительно JSON
+                            const contentType = response.headers.get("content-type");
+                            if (contentType && contentType.indexOf("application/json") !== -1) {
+                                return response.json();
+                            } else {
+                                throw new Error('Сервер вернул не JSON ответ. Проверьте путь к submit-form.php');
+                            }
+                        })
+                        .then(data => {
+                            if (data.success) {
+                                alert('Спасибо! Мы перезвоним вам в течение 15 минут');
+                                form.reset();
+                                grecaptcha.reset();
+                            } else {
+                                alert(data.message || 'Ошибка отправки формы. Попробуйте еще раз.');
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            alert('Ошибка: ' + error.message + '\n\nПроверьте:\n1. Файл submit-form.php загружен на хостинг\n2. Путь к файлу правильный\n3. PHP работает на сервере');
+                        });
                 });
             }
         });
+    </script>
+    <script>
+        // Бургер-меню
+        document.addEventListener('DOMContentLoaded', function () {
+            const burgerMenu = document.getElementById('burgerMenu');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const body = document.body;
+
+            // Проверяем наличие элементов
+            if (!burgerMenu || !mobileMenu) {
+                return;
+            }
+
+            // Открытие/закрытие меню по клику на бургер
+            burgerMenu.addEventListener('click', function () {
+                toggleMenu();
+            });
+
+            // Закрытие меню при клике на ссылку
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    closeMenu();
+                });
+            });
+
+            // Закрытие меню при клике вне его области
+            document.addEventListener('click', function (event) {
+                const isClickInsideMenu = mobileMenu.contains(event.target);
+                const isClickOnBurger = burgerMenu.contains(event.target);
+
+                if (!isClickInsideMenu && !isClickOnBurger && mobileMenu.classList.contains('active')) {
+                    closeMenu();
+                }
+            });
+
+            // Закрытие меню при нажатии ESC
+            document.addEventListener('keydown', function (event) {
+                if (event.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                    closeMenu();
+                }
+            });
+
+            // Функция переключения меню
+            function toggleMenu() {
+                burgerMenu.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+                body.classList.toggle('menu-open');
+
+                // Управление прокруткой body
+                if (mobileMenu.classList.contains('active')) {
+                    body.style.overflow = 'hidden';
+                } else {
+                    body.style.overflow = '';
+                }
+            }
+
+            // Функция закрытия меню
+            function closeMenu() {
+                burgerMenu.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                body.classList.remove('menu-open');
+                body.style.overflow = '';
+            }
+
+            // Закрытие меню при изменении размера окна (если переходим на десктоп)
+            window.addEventListener('resize', function () {
+                if (window.innerWidth > 900 && mobileMenu.classList.contains('active')) {
+                    closeMenu();
+                }
+            });
+        });
+
     </script>
 </body>
 

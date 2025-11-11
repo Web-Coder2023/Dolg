@@ -23,4 +23,46 @@
     .callback__wrap {
         margin-top: 23px;
     }
+
+    // Адаптив
+    @media (max-width: 1024px) {
+        &__container {
+            min-height: 700px;
+            padding-bottom: 50px;
+        }
+
+        &__title {
+            margin-bottom: 60px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        &__container {
+            min-height: auto;
+            padding-bottom: 40px;
+        }
+
+        &__title {
+            margin-bottom: 40px;
+        }
+
+        &__wrap {
+            flex-direction: column;
+            gap: 30px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        &__container {
+            padding-bottom: 30px;
+        }
+
+        &__title {
+            margin-bottom: 30px;
+        }
+
+        &__wrap {
+            gap: 25px;
+        }
+    }
 }

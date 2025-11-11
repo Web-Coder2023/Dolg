@@ -50,4 +50,110 @@
             justify-content: center;
         }
     }
+
+    // Адаптив
+    @media (max-width: 1200px) {
+        ._cards {
+            ._card {
+                width: 300px;
+            }
+
+            &-top,
+            &-bottom {
+                gap: 18px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    }
+
+    @media (max-width: 1024px) {
+        ._section-title {
+            margin-bottom: 50px;
+        }
+
+        ._cards {
+            margin-bottom: 35px;
+
+            ._card {
+                width: 280px;
+
+                button {
+                    font-size: 16px;
+                }
+            }
+
+            &-top,
+            &-bottom {
+                gap: 15px;
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        ._section-title {
+            font-size: 32px;
+            margin-bottom: 40px;
+
+            br {
+                display: none;
+            }
+        }
+
+        ._cards {
+            margin-bottom: 30px;
+
+            ._card {
+                width: 100%;
+                max-width: 400px;
+                padding: 20px;
+                height: auto;
+
+                &-head {
+                    font-size: 20px;
+                }
+
+                button {
+                    font-size: 15px;
+                    padding: 9px 15px;
+                }
+            }
+
+            &-top,
+            &-bottom {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        ._section-title {
+            font-size: 28px;
+            margin-bottom: 30px;
+        }
+
+        ._cards {
+            margin-bottom: 25px;
+
+            ._card {
+                padding: 18px 15px;
+
+                &-head {
+                    font-size: 18px;
+                }
+
+                button {
+                    font-size: 14px;
+                    padding: 8px 12px;
+                }
+            }
+
+            &-top,
+            &-bottom {
+                gap: 12px;
+            }
+        }
+    }
 }
