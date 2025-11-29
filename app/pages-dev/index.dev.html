@@ -39,36 +39,54 @@
     <script type="module">
         const swiper = new Swiper('.swiper', {
             direction: 'horizontal',
-            slidesPerView: 4.4,
-            spaceBetween: 30,
             scrollbar: {
                 el: '.swiper-scrollbar',
                 draggable: true,
             },
+
+            // Адаптивные настройки
+            breakpoints: {
+                10: {
+                    slidesPerView: 1,
+                    spaceBetween: 15,
+                },
+                692: {
+                    slidesPerView: 2.6,
+                    spaceBetween: 30,
+                },
+                843: {
+                    slidesPerView: 3.6,
+                    spaceBetween: 30,
+                },
+                1180: {
+                    slidesPerView: 4.6,
+                    spaceBetween: 30,
+                }
+            }
         });
 
     </script>
     <script>
         // Валидация формы с reCAPTCHA (связь формы и капчи через JS)
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const form = document.getElementById('callbackForm');
             const agreementCheckbox = document.getElementById('agreement');
             const recaptchaElement = document.getElementById('callbackRecaptcha');
-            
+
             if (form && recaptchaElement) {
-                form.addEventListener('submit', function(e) {
+                form.addEventListener('submit', function (e) {
                     e.preventDefault();
-                    
+
                     // Проверка соглашения на обработку данных
                     if (!agreementCheckbox || !agreementCheckbox.checked) {
                         alert('Пожалуйста, согласитесь на обработку персональных данных');
                         return false;
                     }
-                    
+
                     // Проверка reCAPTCHA (связана с формой через ID)
                     // grecaptcha.getResponse() получает значение из виджета callbackRecaptcha
                     const recaptchaResponse = grecaptcha.getResponse();
-                    
+
                     if (recaptchaResponse.length === 0) {
                         alert('Пожалуйста, подтвердите, что вы не робот');
                         // Подсветить блок с капчей
@@ -78,43 +96,43 @@
                         }, 2000);
                         return false;
                     }
-                    
+
                     // Если все проверки пройдены, отправляем форму
                     const formData = new FormData(form);
                     formData.append('g-recaptcha-response', recaptchaResponse);
-                    
+
                     // Отправка формы
                     // Для WordPress темы используем путь к теме
                     fetch('/wp-content/themes/dolg/submit-form.php', {
                         method: 'POST',
                         body: formData
                     })
-                    .then(response => {
-                        // Проверяем статус ответа
-                        if (!response.ok) {
-                            throw new Error(`HTTP error! status: ${response.status}`);
-                        }
-                        // Проверяем, что ответ действительно JSON
-                        const contentType = response.headers.get("content-type");
-                        if (contentType && contentType.indexOf("application/json") !== -1) {
-                            return response.json();
-                        } else {
-                            throw new Error('Сервер вернул не JSON ответ. Проверьте путь к submit-form.php');
-                        }
-                    })
-                    .then(data => {
-                        if (data.success) {
-                            alert('Спасибо! Мы перезвоним вам в течение 15 минут');
-                            form.reset();
-                            grecaptcha.reset();
-                        } else {
-                            alert(data.message || 'Ошибка отправки формы. Попробуйте еще раз.');
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                        alert('Ошибка: ' + error.message + '\n\nПроверьте:\n1. Файл submit-form.php загружен на хостинг\n2. Путь к файлу правильный\n3. PHP работает на сервере');
-                    });
+                        .then(response => {
+                            // Проверяем статус ответа
+                            if (!response.ok) {
+                                throw new Error(`HTTP error! status: ${response.status}`);
+                            }
+                            // Проверяем, что ответ действительно JSON
+                            const contentType = response.headers.get("content-type");
+                            if (contentType && contentType.indexOf("application/json") !== -1) {
+                                return response.json();
+                            } else {
+                                throw new Error('Сервер вернул не JSON ответ. Проверьте путь к submit-form.php');
+                            }
+                        })
+                        .then(data => {
+                            if (data.success) {
+                                alert('Спасибо! Мы перезвоним вам в течение 15 минут');
+                                form.reset();
+                                grecaptcha.reset();
+                            } else {
+                                alert(data.message || 'Ошибка отправки формы. Попробуйте еще раз.');
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            alert('Ошибка: ' + error.message + '\n\nПроверьте:\n1. Файл submit-form.php загружен на хостинг\n2. Путь к файлу правильный\n3. PHP работает на сервере');
+                        });
                 });
             }
         });
@@ -192,6 +210,85 @@
         });
 
     </script>
+
+    <script>
+    // Выпадающее меню для десктопа (hover) и мобильных устройств (клик)
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // ========== ДЕСКТОПНОЕ ВЫПАДАЮЩЕЕ МЕНЮ (ПО НАВЕДЕНИЮ) ==========
+    const desktopDropdowns = document.querySelectorAll('.header__nav .subdown');
+    
+    desktopDropdowns.forEach(dropdown => {
+        const submenu = dropdown.querySelector('.subdown__list');
+        
+        if (!submenu) return;
+        
+        // Открытие при наведении
+        dropdown.addEventListener('mouseenter', function() {
+            dropdown.classList.add('active');
+            submenu.classList.add('active');
+        });
+        
+        // Закрытие при уходе курсора
+        dropdown.addEventListener('mouseleave', function() {
+            dropdown.classList.remove('active');
+            submenu.classList.remove('active');
+        });
+    });
+    
+    // Закрытие всех меню при нажатии ESC
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            desktopDropdowns.forEach(dropdown => {
+                dropdown.classList.remove('active');
+                const submenu = dropdown.querySelector('.subdown__list');
+                if (submenu) {
+                    submenu.classList.remove('active');
+                }
+            });
+        }
+    });
+    
+    
+    // ========== МОБИЛЬНОЕ ВЫПАДАЮЩЕЕ МЕНЮ (ПО КЛИКУ) ==========
+    const mobileDropdowns = document.querySelectorAll('.header__mobile-nav .has-dropdown');
+    
+    mobileDropdowns.forEach(dropdown => {
+        const button = dropdown.querySelector('button');
+        const submenu = dropdown.querySelector('.mobile-dropdown');
+        
+        if (!button || !submenu) return;
+        
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Переключаем состояние текущего меню
+            dropdown.classList.toggle('active');
+            submenu.classList.toggle('active');
+        });
+    });
+    
+    // Закрытие всех выпадающих меню при закрытии мобильного меню
+    const burgerMenu = document.getElementById('burgerMenu');
+    if (burgerMenu) {
+        burgerMenu.addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            if (mobileMenu && !mobileMenu.classList.contains('active')) {
+                // Меню закрывается - закрываем все выпадающие меню
+                mobileDropdowns.forEach(dropdown => {
+                    dropdown.classList.remove('active');
+                    const submenu = dropdown.querySelector('.mobile-dropdown');
+                    if (submenu) {
+                        submenu.classList.remove('active');
+                    }
+                });
+            }
+        });
+    }
+});
+
+</script>
+
 </body>
 
 </html>
