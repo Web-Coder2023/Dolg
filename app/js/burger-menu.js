@@ -45,11 +45,19 @@ document.addEventListener('DOMContentLoaded', function() {
         mobileMenu.classList.toggle('active');
         body.classList.toggle('menu-open');
         
-        // Управление прокруткой body
+        // Управление прокруткой body - фиксация позиции вместо overflow:hidden
         if (mobileMenu.classList.contains('active')) {
-            body.style.overflow = 'hidden';
+            const scrollY = window.scrollY;
+            body.style.position = 'fixed';
+            body.style.top = `-${scrollY}px`;
+            body.style.width = '100%';
+            body.dataset.scrollY = scrollY;
         } else {
-            body.style.overflow = '';
+            const scrollY = body.dataset.scrollY || 0;
+            body.style.position = '';
+            body.style.top = '';
+            body.style.width = '';
+            window.scrollTo(0, parseInt(scrollY));
         }
     }
 
@@ -58,7 +66,13 @@ document.addEventListener('DOMContentLoaded', function() {
         burgerMenu.classList.remove('active');
         mobileMenu.classList.remove('active');
         body.classList.remove('menu-open');
-        body.style.overflow = '';
+        
+        // Восстановление прокрутки body
+        const scrollY = body.dataset.scrollY || 0;
+        body.style.position = '';
+        body.style.top = '';
+        body.style.width = '';
+        window.scrollTo(0, parseInt(scrollY));
     }
 
     // Закрытие меню при изменении размера окна (если переходим на десктоп)

@@ -13,6 +13,22 @@
         }
     }
 
+    ._label-right {
+        background-image: url('../../images/me.webp');
+    }
+
+    .outofcourt-image {
+        background-image: url('../../images/outofcourt.webp');
+    }
+
+    .court-bg {
+        background-image: url('../../images/court.webp');
+    }
+
+    .details-bg {
+        background-image: url('../../images/details-bg.webp');
+    }
+
     // Адаптив
     @media (max-width: 1024px) {
         height: auto;
