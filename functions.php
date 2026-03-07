@@ -64,3 +64,5 @@ add_action( 'wp_enqueue_scripts', 'dolg_enqueue_assets' );
 function dolg_theme_uri( $path = '' ) {
     return get_template_directory_uri() . ( $path ? '/' . ltrim( $path, '/' ) : '' );
 }
+
+require_once get_template_directory() . '/inc/acf-fields.php';
